@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Configurazione AFT Web Launcher"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="26dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="URL completo"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="http://192.168.0.123:8082/AFT/Principale.aspx?computer=TABLET01"
+            android:inputType="textUri"
+            android:singleLine="false"
+            android:minLines="2"
+            android:maxLines="4"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tastiera virtuale Android"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <RadioGroup
+            android:id="@+id/rgKeyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbKeyboardOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disabilitata" />
+
+            <RadioButton
+                android:id="@+id/rbKeyboardOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abilitata" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Orientamento"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <RadioGroup
+            android:id="@+id/rgOrientation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbPortrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verticale" />
+
+            <RadioButton
+                android:id="@+id/rbLandscape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orizzontale" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SALVA E AVVIA"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Per riaprire questa configurazione: tenere premuto l'angolo in alto a sinistra durante l'uso dell'app."
+            android:textSize="13sp"
+            android:layout_marginTop="18dp" />
+
+    </LinearLayout>
+
+</ScrollView>
