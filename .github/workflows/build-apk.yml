@@ -1,0 +1,64 @@
+name: Compila APK AFT Web Launcher
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recupera progetto
+        uses: actions/checkout@v4
+
+      - name: Installa Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Configura Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
+
+      - name: Trova sdkmanager
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+          find "$ANDROID_HOME" -name sdkmanager -type f -print
+
+      - name: Installa Android SDK 35
+        run: |
+          SDKMANAGER=$(find "$ANDROID_HOME" -name sdkmanager -type f | head -n 1)
+
+          if [ -z "$SDKMANAGER" ]; then
+            echo "sdkmanager non trovato"
+            exit 1
+          fi
+
+          echo "Uso sdkmanager: $SDKMANAGER"
+
+          yes | "$SDKMANAGER" --licenses >/dev/null || true
+          "$SDKMANAGER" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Compila APK debug
+        run: gradle :app:assembleDebug --stacktrace
+
+      - name: Prepara APK
+        run: |
+          mkdir -p output
+          cp app/build/outputs/apk/debug/app-debug.apk output/AFTWebLauncher.apk
+
+      - name: Pubblica APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: AFTWebLauncher
+          path: output/AFTWebLauncher.apk
+          if-no-files-found: error
