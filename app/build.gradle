@@ -3,14 +3,14 @@ plugins {
 }
 
 android {
-    namespace 'it.atlanticfluidtech.aftweblauncher'
+    namespace 'it.atlanticfluidtech.aftwebbrowser'
     compileSdk 35
 
     defaultConfig {
-        applicationId "it.atlanticfluidtech.aftweblauncher"
+        applicationId "it.atlanticfluidtech.aftwebbrowser"
         minSdk 26
         targetSdk 35
         versionCode 1
-        versionName "1.0"
+        versionName "2.0"
     }
 }
