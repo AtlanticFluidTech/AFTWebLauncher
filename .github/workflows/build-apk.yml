@@ -1,4 +1,4 @@
-name: Compila APK AFT Web Launcher
+name: Compila APK AFT Web Browser
 
 on:
   workflow_dispatch:
@@ -44,7 +44,6 @@ jobs:
           fi
 
           echo "Uso sdkmanager: $SDKMANAGER"
-
           yes | "$SDKMANAGER" --licenses >/dev/null || true
           "$SDKMANAGER" "platforms;android-35" "build-tools;35.0.0"
 
@@ -54,11 +53,11 @@ jobs:
       - name: Prepara APK
         run: |
           mkdir -p output
-          cp app/build/outputs/apk/debug/app-debug.apk output/AFTWebLauncher.apk
+          cp app/build/outputs/apk/debug/app-debug.apk output/AFTWebBrowser.apk
 
       - name: Pubblica APK
         uses: actions/upload-artifact@v4
         with:
-          name: AFTWebLauncher
-          path: output/AFTWebLauncher.apk
+          name: AFTWebBrowser
+          path: output/AFTWebBrowser.apk
           if-no-files-found: error
