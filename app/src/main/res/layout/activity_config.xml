@@ -1,113 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Configurazione AFT Web Browser"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="14dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Orientamento generale"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <RadioGroup
+        android:id="@+id/rgOrientation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <RadioButton
+            android:id="@+id/rbPortrait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verticale" />
+
+        <RadioButton
+            android:id="@+id/rbLandscape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orizzontale"
+            android:layout_marginStart="18dp" />
+
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Configurazione AFT Web Launcher"
-            android:textSize="24sp"
+            android:layout_weight="1"
+            android:text="Pagine / Tab"
             android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="26dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="URL completo"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="http://192.168.0.123:8082/AFT/Principale.aspx?computer=TABLET01"
-            android:inputType="textUri"
-            android:singleLine="false"
-            android:minLines="2"
-            android:maxLines="4"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tastiera virtuale Android"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp" />
-
-        <RadioGroup
-            android:id="@+id/rgKeyboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rbKeyboardOff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Disabilitata" />
-
-            <RadioButton
-                android:id="@+id/rbKeyboardOn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abilitata" />
-
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Orientamento"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp" />
-
-        <RadioGroup
-            android:id="@+id/rgOrientation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rbPortrait"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Verticale" />
-
-            <RadioButton
-                android:id="@+id/rbLandscape"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Orizzontale" />
-
-        </RadioGroup>
+            android:textSize="17sp"
+            android:gravity="center_vertical" />
 
         <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SALVA E AVVIA"
-            android:textSize="18sp"
-            android:layout_marginTop="30dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Per riaprire questa configurazione: tenere premuto l'angolo in alto a sinistra durante l'uso dell'app."
-            android:textSize="13sp"
-            android:layout_marginTop="18dp" />
+            android:text="+ AGGIUNGI" />
 
     </LinearLayout>
 
-</ScrollView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:id="@+id/listContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SALVA E AVVIA"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>
