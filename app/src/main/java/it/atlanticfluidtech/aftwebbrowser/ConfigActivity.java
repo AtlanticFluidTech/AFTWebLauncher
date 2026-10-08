@@ -139,7 +139,7 @@ public class ConfigActivity extends Activity {
             delete.setOnClickListener(v ->
                     new AlertDialog.Builder(this)
                             .setTitle("Elimina tab")
-                            .setMessage("Eliminare "" + item.name + ""?")
+                            .setMessage("Eliminare " + item.name + "?")
                             .setPositiveButton("ELIMINA", (d, which) -> {
                                 tabs.remove(index);
                                 renderList();
